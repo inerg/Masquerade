@@ -1,5 +1,4 @@
 <<<<<<< HEAD
-test
-=======
 help
->>>>>>> Changed the numbered file to figure out rebasing.
+asdfkljsda;f
+>>>>>>> asdfasdfasdlkjfsakljdf
