@@ -1,3 +1,6 @@
+import pygame
+import constants
+
 class Player(pygame.sprite.Sprite):
 	base_speed = BASESPEED
 	speed_modifier = SPEEDMODIFIER

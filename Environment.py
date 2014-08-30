@@ -1,3 +1,5 @@
+import pygame
+import constants
 #This may be able to be kept as a Sprite since it doesn't do much special
 class Environment(pygame.sprite.Sprite):
 	images = []
