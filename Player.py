@@ -6,7 +6,10 @@ class Player(pygame.sprite.Sprite):
 	speed_modifier = SPEEDMODIFIER
 	climb_speed = CLIMBSPEED
 	jump_force = JUMPFORCE
+	delta_xy = 0
 	gravity = BASEGRAVITY
+	hasJumped = False
+	curr_ground_y = BASE_GROUND_Y
 	images = []
 	
 	def __init__(self):
@@ -24,10 +27,22 @@ class Player(pygame.sprite.Sprite):
 		self.rect.move_ip(base_speed*direction,0)
 		self.rect.clamp(SCREENRECT)
 
-	def move_vertical(self,delta_x,delta_y):
+	def move_vertical(self,delta_time):
 	# Moves character by the given delta x/y coordinates
-		self.rect.move_ip(delta_x,delta_y)
+		self.rect.move_ip(0,sel.rect.y + (delta_xy*delta_time))
 		self.rect.clamp(SCREENRECT)
+
+		if self.rect.y <= curr_ground_y
+			self.rect.move_ip(0,curr_ground_y)
+			delta_xy = 0
+
+	def jump():
+		hasJumped = True
+
+	def isJumping():
+		return hasJumped
+
+
 
 
 	

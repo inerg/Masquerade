@@ -1,5 +1,8 @@
 Masquerade Read Me
 
-Trello board: https://trello.com/braeden4/recommend
-	If you use this then I can get Trello Gold and make our board look cool. Also Trello is very helpful when tracking stuff so we don't
-	double right code.
+Project Motto : K.I.S.S 
+
+Code Standards :
+	1) Be good encapsulation, getters setters always
+	2) Try add comments
+	3) Make all method one solid idea, not do more then one thing
