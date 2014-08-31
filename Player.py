@@ -3,14 +3,14 @@ import Constants
 
 
 class Player(pygame.sprite.Sprite):
-    base_speed = BASESPEED
-    speed_modifier = SPEEDMODIFIER
-    climb_speed = CLIMBSPEED
-    jump_force = JUMPFORCE
+    base_speed = Constants.BASESPEED
+    speed_modifier = Constants.SPEEDMODIFIER
+    climb_speed = Constants.CLIMBSPEED
+    jump_force = Constants.JUMPFORCE
     delta_xy = 0
-    gravity = BASEGRAVITY
+    gravity = Constants.BASEGRAVITY
     hasJumped = False
-    curr_ground_y = BASE_GROUND_Y
+    curr_ground_y = Constants.BASE_GROUND_Y
     images = []
 
     def __init__(self):
