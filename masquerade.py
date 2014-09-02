@@ -6,7 +6,11 @@ from pygame.locals import *
 
 pygame.init()  # This is needed so that anything with in pygame can be used.
 
+thePlayer = pygame.sprite.GroupSingle()
+Player.conainers = thePlayer
 
+player = Player()
+event = Events(player)
 
 
 fpsClock = pygame.time.Clock()  # This will allow for us to sleep the games execution to lock it at 60fps.
@@ -35,7 +39,9 @@ while True:
 
     #Make action on player input
     direction = keystate[K_RIGHT] - keystate[K_LEFT]
+    event.player_moves(direction)
 
 
-    pygame.display.update()
+    dirty = thePlayer.draw(window)
+    pygame.display.update(dirty)
     fpsClock.tick(60)
