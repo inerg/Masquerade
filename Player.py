@@ -21,28 +21,27 @@ class Player(pygame.sprite.Sprite):
     def move_horizontal(self, direction):
         # Moves character based on the given direction
         if direction > 0:
-            self.image = images[PLAYER_RIGHT_IMAGE]
-        else
-            self.image = images[PLAYER_LEFT_IMAGE]
+            self.image = self.images[constants.PLAYER_IMAGE_RIGHT]
+        else:
+            self.image = self.images[constants.PLAYER_IMAGE_LEFT]
 
-    	self.rect.move_ip(base_speed * direction, 0)
-    	self.rect.clamp(constants.SCREENRECT)
+        self.rect.move_ip(self.base_speed * direction, 0)
+        self.rect.clamp(constants.SCREENRECT)
 
 
-	def move_vertical(self, delta_time):
+    def move_vertical(self, delta_time):
     # Moves character by the given delta x/y coordinates
-    	self.rect.move_ip(0, sel.rect.y + (delta_xy * delta_time))
-    	self.rect.clamp(constants.SCREENRECT)
+        self.rect.move_ip(0, self.rect.y + (self.delta_xy * delta_time))
+        self.rect.clamp(constants.SCREENRECT)
 
-    	if self.rect.y <= curr_ground_y
-        	self.rect.move_ip(0, curr_ground_y)
-        	delta_xy = 0
-
-
-	def jump():
-    	hasJumped = True  # while not important right now I've read use 1 and 0 is faster for execution although minorly for true false checks
+        if self.rect.y <= self.curr_ground_y:
+            self.rect.move_ip(0, self.curr_ground_y)
+            self.delta_xy = 0
 
 
-	def isJumping():
-    	return hasJumped
+    def jump(self):
+        self.hasJumped = True  # while not important right now I've read use 1 and 0 is faster for execution although minorly for true false checks
+ 
+    def isJumping(self):
+        return self.hasJumped
 

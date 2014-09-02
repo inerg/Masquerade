@@ -1,5 +1,7 @@
 import pygame
 
+import Player
+import Events
 import constants
 import sys
 from pygame.locals import *

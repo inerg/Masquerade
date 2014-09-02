@@ -2,20 +2,20 @@ import pygame
 import constants
 import Player
 
-class Events(player):
+class Events(Player.Player()):
     player = Player()
 
-    def __init__(player):
+    def __init__(self,player):
         self.player = player
 
-    def player_moves(direction):
+    def player_moves(self,direction):
     #Performs all action need to create player movement
-    #input@ direction indicated by keyboard state
-        player.move_horizontal(direction)
+    #input direction indicated by keyboard state
+        self.player.move_horizontal(direction)
 
 
-    def player_jumps(delta_time):
+    def player_jumps(self,delta_time):
     #Calculate delta x/y for current jump
     #Input@ time between last call
-        player.delta_xy -= Player.gravity * delta_time
-        player.move_vertical(delta_time)
+        self.player.delta_xy -= self.player.gravity * delta_time
+        self.player.move_vertical(delta_time)
