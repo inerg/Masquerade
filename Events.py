@@ -2,8 +2,8 @@ import pygame
 import constants
 import Player
 
-class Events(Player.Player()):
-    player = Player()
+class Events(object):
+    player = None
 
     def __init__(self,player):
         self.player = player

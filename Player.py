@@ -1,4 +1,5 @@
 import pygame
+from pygame.locals import *
 import constants
 
 
@@ -16,7 +17,7 @@ class Player(pygame.sprite.Sprite):
     def __init__(self):
         pygame.sprite.Sprite.__init__(self, self.containers)
         self.image = self.images[0]
-        self.rect = self.image.rect.get_rect(midbottom = constants.SCREENRECT.midbottom)
+        self.rect = self.image.get_rect(midbottom = constants.SCREENRECT.midbottom)
 
     def move_horizontal(self, direction):
         # Moves character based on the given direction
