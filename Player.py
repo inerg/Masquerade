@@ -21,12 +21,12 @@ class Player(pygame.sprite.Sprite):
     def move_horizontal(self, direction):
         # Moves character based on the given direction
         if direction > 0:
-            self.image = images[PLAYER_RIGHT_IMAGE]
-        else
-            self.image = images[PLAYER_LEFT_IMAGE]
+            self.image = images[1]
+        else:
+            self.image = images[0]
 
-    self.rect.move_ip(base_speed * direction, 0)
-    self.rect.clamp(constants.SCREENRECT)
+        self.rect.move_ip(constants.BASESPEED * direction, 0)
+        self.rect.clamp(constants.SCREENRECT)
 
 
 def move_vertical(self, delta_time):

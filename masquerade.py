@@ -1,5 +1,6 @@
 import os.path
 import pygame
+import Player
 
 import constants
 import sys
@@ -16,6 +17,15 @@ fpsClock = pygame.time.Clock()  # This will allow for us to sleep the games exec
 window = pygame.display.set_mode(constants.SCREENRECT.size, 0, 32)
                                                             #(x, y, windows style (full or windowed), Bit depth)
 pygame.display.set_caption('Masquerade')  #Sets the windows text title
+
+
+#Load the games visual art assets
+img_left = os.path.join(constants.MAIN_DIR, 'Images', 'Character', 'left.png')
+img_left = pygame.image.load(img_left).convert
+
+img_right = os.path.join(constants.MAIN_DIR, 'Images', 'Character', 'right.png')
+img_right = pygame.image.load(img_right).convert
+Player.Player.images = [img_left, img_right]
 
 #Load and start sound
 background_music = os.path.join(constants.MAIN_DIR, 'Assets', 'Sound', 'Music', 'background.ogg')
