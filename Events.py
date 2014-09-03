@@ -19,3 +19,8 @@ class Events(object):
     #Input@ time between last call
         self.player.jump_force -= self.player.gravity * delta_time
         self.player.move_vertical(delta_time)
+        
+        '''
+        self.player.jump_force -= self.player.gravity * delta_time
+        self.player.move_vertical(delta_time)
+        '''

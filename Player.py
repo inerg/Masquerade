@@ -32,14 +32,15 @@ class Player(pygame.sprite.Sprite):
 
     def move_vertical(self, delta_time):
     # Moves character by the given delta x/y coordinates
-        self.rect.move_ip(0, self.rect.y + (self.delta_xy * delta_time))
+        self.rect.move_ip(0, self.rect.y + (self.jump_force * delta_time))
         self.rect.clamp(constants.SCREENRECT)
 
-        if self.rect.y <= self.curr_ground_y:
+        if (self.rect.y <= self.curr_ground_y):
             self.rect.move_ip(0, self.curr_ground_y)
-            self.delta_xy = 0
+            self.rect.clamp(constants.SCREENRECT)
+            self.jump_force = constants.JUMPFORCE
             self.hasJumped = False
-
+        
 
     def jump(self):
         self.hasJumped = True  # while not important right now I've read use 1 and 0 is faster for execution although minorly for true false checks

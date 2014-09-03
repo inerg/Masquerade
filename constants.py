@@ -2,11 +2,11 @@ from pygame.rect import Rect
 
 BASESPEED = 10
 SPEEDMODIFIER = 2
-JUMPFORCE = 100
+JUMPFORCE = -50
 CLIMBSPEED = 10
-GRAVITY = 9.81
+GRAVITY = 2
 SCREENRECT = Rect(0,0,680,480) #We should fully figure out how all these values work as its not clear in pygame documentation
-BASE_GROUND_Y = 10
+BASE_GROUND_Y = 400
 PLAYER_IMAGE_LEFT = 0
 PLAYER_IMAGE_RIGHT = 1
 #Colour constants since we have no images right now

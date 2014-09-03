@@ -47,17 +47,35 @@ while True:
     direction = keystate[K_RIGHT] - keystate[K_LEFT]
     eventMaker.player_moves(direction)
 
-    if keystate[K_SPACE] and not player.isJumping():
-        eventMaker.player_jumps(1)
-        startJump = pygame.time.get_ticks()
+    if keystate[K_SPACE] and (not player.isJumping()):
+        delta_time = 1
+        prevTime = pygame.time.get_ticks()
+        eventMaker.player_jumps(delta_time)
         player.jump()
-    elif player.isJumping():
-        nowJump = pygame.time.get_ticks()
-        delta_time = nowJump - startJump
-        if delta_time % 1000 == 0:
-            eventMaker.player_jumps(delta_time)
         
-            
+    if player.isJumping():
+        nowTime = pygame.time.get_ticks()
+        delta_time = (nowTime - prevTime) / 1000
+        eventMaker.player_jumps(delta_time)
+       
+        
+        
+        '''
+    if keystate[K_SPACE] and not player.isJumping():
+        delta_time = 1
+        eventMaker.player_jumps(delta_time)
+        prevJump = pygame.time.get_ticks()
+        player.jump()
+    
+    if player.isJumping():
+        nowJump = pygame.time.get_ticks()
+        time_difference = nowJump - prevJump
+        if time_difference >= 1000:
+            delta_time += 1
+            eventMaker.player_jumps(delta_time)
+            prevJump = nowJump
+   '''         
+               
         
         
     dirty = thePlayer.draw(window)
