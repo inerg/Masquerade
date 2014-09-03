@@ -38,6 +38,7 @@ class Player(pygame.sprite.Sprite):
         if self.rect.y <= self.curr_ground_y:
             self.rect.move_ip(0, self.curr_ground_y)
             self.delta_xy = 0
+            self.hasJumped = False
 
 
     def jump(self):

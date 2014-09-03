@@ -17,5 +17,5 @@ class Events(object):
     def player_jumps(self,delta_time):
     #Calculate delta x/y for current jump
     #Input@ time between last call
-        self.player.delta_xy -= self.player.gravity * delta_time
+        self.player.jump_force -= self.player.gravity * delta_time
         self.player.move_vertical(delta_time)

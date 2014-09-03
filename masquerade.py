@@ -15,11 +15,11 @@ window = pygame.display.set_mode(constants.SCREENRECT.size, 0, 32)
 pygame.display.set_caption('Masquerade')  #Sets the windows text title
 
 #Hardcoded loading of images
-img = pygame.image.load('Images/Tiles/Terrain/AttackDummy1.PNG').convert()
+img = pygame.image.load('Assets/Images/Tiles/Terrain/AttackDummy1.PNG').convert()
 
 Player.Player.images = [img, pygame.transform.flip(img, 1, 0)]
 
-thePlayer = pygame.sprite.GroupSingle()
+thePlayer = pygame.sprite.RenderUpdates()
 
 Player.Player.containers = thePlayer
 
@@ -47,7 +47,21 @@ while True:
     direction = keystate[K_RIGHT] - keystate[K_LEFT]
     eventMaker.player_moves(direction)
 
-
+    if keystate[K_SPACE]:
+        eventMaker.player_jumps(1)
+        prevJump = pygame.time.get_ticks()
+        player.jump()
+        
+    if player.isJumping():
+        nowJump = pygame.time.get_ticks()
+        delta_time = nowJump - prevJump
+        if delta_time % 1000:
+            eventMaker.player_jumps(delta_time)
+            
+        prevJump = nowJump
+            
+        
+        
     dirty = thePlayer.draw(window)
     pygame.display.update(dirty)
     fpsClock.tick(60)
