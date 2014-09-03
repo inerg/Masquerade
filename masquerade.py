@@ -47,18 +47,16 @@ while True:
     direction = keystate[K_RIGHT] - keystate[K_LEFT]
     eventMaker.player_moves(direction)
 
-    if keystate[K_SPACE]:
+    if keystate[K_SPACE] and not player.isJumping():
         eventMaker.player_jumps(1)
-        prevJump = pygame.time.get_ticks()
+        startJump = pygame.time.get_ticks()
         player.jump()
-        
-    if player.isJumping():
+    elif player.isJumping():
         nowJump = pygame.time.get_ticks()
-        delta_time = nowJump - prevJump
-        if delta_time % 1000:
+        delta_time = nowJump - startJump
+        if delta_time % 1000 == 0:
             eventMaker.player_jumps(delta_time)
-            
-        prevJump = nowJump
+        
             
         
         
