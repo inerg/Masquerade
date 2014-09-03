@@ -1,3 +1,4 @@
+import os.path
 from pygame.rect import Rect
 
 BASESPEED = 10
@@ -15,3 +16,5 @@ GREEN = (0, 255, 0)
 BLUE = (0, 0, 255)
 YELLOW = (255, 255, 0)
 
+#File structure stuff
+MAIN_DIR = os.path.split(os.path.abspath(__file__))[0] #Gets working directory program is running in

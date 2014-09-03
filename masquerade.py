@@ -5,7 +5,7 @@ import constants
 import sys
 from pygame.locals import *
 
-main_dir = os.path.split(os.path.abspath(__file__))[0] #Gets working directory program is running in
+
 pygame.init()  # This is needed so that anything with in pygame can be used.
 
 
@@ -18,7 +18,7 @@ window = pygame.display.set_mode(constants.SCREENRECT.size, 0, 32)
 pygame.display.set_caption('Masquerade')  #Sets the windows text title
 
 #Load and start sound
-background_music = os.path.join(main_dir, 'Assets', 'Sound', 'Music', 'background.ogg')
+background_music = os.path.join(constants.MAIN_DIR, 'Assets', 'Sound', 'Music', 'background.ogg')
 pygame.mixer.music.load(background_music)
 pygame.mixer.music.play(-1, 0.0) #Starts the music looping indefinitely at the start of the song
 
