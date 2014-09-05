@@ -55,9 +55,11 @@ while True:
         
     if player.isJumping():
         nowTime = pygame.time.get_ticks()
-        delta_time = (nowTime - prevTime) / 1000
-        eventMaker.player_jumps(delta_time)
-       
+        diffTime = nowTime - prevTime
+        if(diffTime >= 1000):
+            delta_time += 1
+            eventMaker.player_jumps(delta_time)
+            prevTime = nowTime
         
         
         '''

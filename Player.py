@@ -31,12 +31,12 @@ class Player(pygame.sprite.Sprite):
 
 
     def move_vertical(self, delta_time):
-    # Moves character by the given delta x/y coordinates
-        self.rect.move_ip(0, self.rect.y + (self.jump_force * delta_time))
+    # Moves character by the given delta x/y coordinate
+        self.rect.move_ip(0,(self.jump_force * delta_time))
         self.rect.clamp(constants.SCREENRECT)
 
-        if (self.rect.y <= self.curr_ground_y):
-            self.rect.move_ip(0, self.curr_ground_y)
+        if (self.rect.y > self.curr_ground_y):
+            self.rect.move_ip(0, (self.curr_ground_y - self.rect.y))
             self.rect.clamp(constants.SCREENRECT)
             self.jump_force = constants.JUMPFORCE
             self.hasJumped = False
